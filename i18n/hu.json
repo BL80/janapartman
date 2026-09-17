@@ -1,0 +1,64 @@
+{
+  "meta": { "lang": "Magyar" },
+  "nav": {
+    "about": "Bemutatkozás",
+    "features": "Kerékpáros szolgáltatások",
+    "gallery": "Galéria",
+    "booking": "Foglalás",
+    "location": "Elhelyezkedés",
+    "contact": "Kapcsolat"
+  },
+  "hero": {
+    "title": "Jana Apartman",
+    "subtitle": "Balatonkeresztúr · Kerékpáros pihenőhely a Balaton déli partján",
+    "cta_book": "Szabad időpontok",
+    "cta_explore": "Fedezd fel"
+  },
+  "about": {
+    "title": "Üdvözlünk a Jana Apartmanban",
+    "body": "Kényelmes, világos apartman a Balaton déli partján, kerékpáros túrázók és egy éjszakára megpihenő vendégek számára egyaránt. Nyugodt környezet, közel a vízhez és a bringaúthoz."
+  },
+  "features": {
+    "title": "Kerékpárosoknak kitalálva",
+    "bike_title": "Biztonságos tárolás",
+    "bike_desc": "Zárható kerékpártároló és szerelősarok a túranapok között.",
+    "echarge_title": "E-bike töltőállomás",
+    "echarge_desc": "Töltsd fel elektromos kerékpárod egy éjszaka alatt, indulhat a következő szakasz.",
+    "overnight_title": "Egyéjszakás vendégek",
+    "overnight_desc": "Csak egy éjszakára térnél be? Nálunk így is szeretettel várunk."
+  },
+  "amenities": {
+    "title": "Felszereltség",
+    "wifi": "Ingyenes Wi-Fi",
+    "kitchen": "Felszerelt konyha",
+    "parking": "Ingyenes parkolás",
+    "ac": "Klíma",
+    "terrace": "Terasz / kertkapcsolat",
+    "laundry": "Mosási lehetőség"
+  },
+  "gallery": {
+    "title": "Galéria",
+    "note": "A képek helyőrzők — a valódi fotók később kerülnek fel."
+  },
+  "booking": {
+    "title": "Szabad időpontok és foglalás",
+    "subtitle": "A naptár a Google Naptárból frissül majd. Most helyőrző nézet látható.",
+    "legend_free": "Szabad",
+    "legend_busy": "Foglalt",
+    "cta": "Foglalási kérés küldése"
+  },
+  "location": {
+    "title": "Elhelyezkedés",
+    "body": "Balatonkeresztúr, közvetlen kapcsolat a Balatoni bringakörúthoz. Strand, vasútállomás és boltok néhány perc alatt elérhetők."
+  },
+  "contact": {
+    "title": "Kapcsolat",
+    "address": "8648 Balatonkeresztúr, Magyarország",
+    "email": "info@janaapartman.hu",
+    "phone": "+36 30 000 0000"
+  },
+  "footer": {
+    "rights": "Minden jog fenntartva.",
+    "mockup": "Ez egy dizájn-mockup, nem végleges tartalom."
+  }
+}

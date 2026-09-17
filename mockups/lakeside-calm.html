@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jana Apartman — Lakeside Calm (mockup)</title>
+<style>
+  :root{
+    --bg:#f6fafd; --surface:#ffffff; --ink:#173040; --muted:#5b7385;
+    --primary:#2f8fc7; --primary-dark:#1f6d9c; --sand:#eADFcf; --sand-2:#f3ece0;
+    --ring:rgba(47,143,199,.25); --radius:18px; --max:1120px;
+    --shadow:0 10px 40px rgba(23,48,64,.08);
+    --font: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  h1,h2,h3{line-height:1.15;margin:0 0 .4em}
+  h2{font-size:clamp(1.6rem,3vw,2.4rem)}
+  .lead{color:var(--muted);font-size:1.1rem;max-width:60ch}
+
+  /* Header */
+  header.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.72);
+    backdrop-filter:blur(12px);border-bottom:1px solid #e6eef4}
+  .nav__inner{display:flex;align-items:center;gap:20px;height:68px}
+  .brand{font-weight:700;letter-spacing:.5px;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+  .brand svg{width:26px;height:26px;color:var(--primary)}
+  nav.links{margin-left:auto;display:flex;gap:22px;flex-wrap:wrap}
+  nav.links a{text-decoration:none;color:var(--muted);font-size:.95rem;font-weight:500}
+  nav.links a:hover{color:var(--primary)}
+  .langs{display:flex;gap:6px;margin-left:8px}
+  .langs button{border:1px solid #d7e3ec;background:#fff;color:var(--muted);
+    border-radius:999px;padding:4px 10px;font-size:.78rem;cursor:pointer;font-weight:600}
+  .langs button[aria-pressed="true"]{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .menu-toggle{display:none}
+
+  /* Hero */
+  .hero{position:relative;min-height:78vh;display:flex;align-items:center;color:#fff;
+    background:
+      linear-gradient(180deg, rgba(12,45,68,.30), rgba(12,45,68,.55)),
+      radial-gradient(1200px 500px at 70% -10%, #7fc4e8, transparent),
+      linear-gradient(160deg,#2f8fc7,#1f6d9c 60%, #16506f)}
+  .hero .wrap{padding-top:60px;padding-bottom:60px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:.2em;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+  .hero p{font-size:clamp(1.05rem,2.4vw,1.4rem);max-width:52ch;color:#eaf5fb}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 24px;
+    font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent;font-size:1rem}
+  .btn--primary{background:#fff;color:var(--primary-dark)}
+  .btn--primary:hover{background:var(--sand-2)}
+  .btn--ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn--ghost:hover{background:rgba(255,255,255,.22)}
+  .wave{position:absolute;left:0;right:0;bottom:-1px;line-height:0}
+  .wave svg{width:100%;height:70px;display:block}
+
+  /* About */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .photo{border-radius:var(--radius);min-height:320px;box-shadow:var(--shadow);
+    background:linear-gradient(135deg,#cfe6f4,#a9d4ea 40%,#eadfcf);position:relative;overflow:hidden}
+  .photo::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.6), transparent 40%)}
+  .photo span{position:absolute;bottom:12px;right:14px;font-size:.75rem;color:#365a70;background:rgba(255,255,255,.7);
+    padding:3px 8px;border-radius:8px}
+
+  /* Features */
+  .features{background:var(--sand-2)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .card{background:var(--surface);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .card .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+    background:var(--ring);color:var(--primary-dark);margin-bottom:14px}
+  .card h3{font-size:1.15rem}
+  .card p{color:var(--muted);margin:0}
+
+  /* Amenities */
+  .amen-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .amen{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e6eef4;
+    border-radius:12px;padding:14px 16px}
+  .amen svg{color:var(--primary);flex:0 0 auto}
+
+  /* Gallery */
+  .grid-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  .ph{aspect-ratio:4/3;border-radius:14px;background:linear-gradient(135deg,#cfe6f4,#eadfcf)}
+  .ph:nth-child(even){background:linear-gradient(135deg,#dff0d8,#cfe6f4)}
+  .note{color:var(--muted);font-size:.9rem;margin-top:14px}
+
+  /* Booking */
+  .booking{background:var(--sand-2)}
+  .booking .panel{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+  .legend{display:flex;gap:18px;margin:14px 0 4px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+  .dot{width:14px;height:14px;border-radius:4px;display:inline-block}
+  .dot--free{background:#cfe9d6;border:1px solid #86c79a}
+  .dot--busy{background:#f3d2cf;border:1px solid #dc9a92}
+
+  /* Calendar (shared class names from availability.js) */
+  .jana-cal{margin-top:10px}
+  .jana-cal__title{font-weight:700;font-size:1.05rem}
+  .jana-cal__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}
+  .jana-cal__dow{text-align:center;font-size:.72rem;color:var(--muted);font-weight:700;padding:4px 0}
+  .jana-cal__cell{aspect-ratio:1/1;display:grid;place-items:center;border-radius:10px;font-size:.85rem;font-weight:600}
+  .jana-cal__cell--empty{background:transparent}
+  .jana-cal__cell--free{background:#e7f5ec;color:#2f7a4b;border:1px solid #cbe7d3}
+  .jana-cal__cell--busy{background:#fbe6e3;color:#b4463a;border:1px solid #f0cdc7;text-decoration:line-through}
+
+  /* Location & contact */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .map{min-height:280px;border-radius:var(--radius);box-shadow:var(--shadow);
+    background:
+      linear-gradient(90deg, rgba(47,143,199,.15) 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(0deg, rgba(47,143,199,.15) 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(135deg,#e9f3f9,#dfeff6)}
+  .contact-card{background:#fff;border:1px solid #e6eef4;border-radius:var(--radius);padding:26px}
+  .contact-card a{color:var(--primary-dark);font-weight:600;text-decoration:none}
+
+  footer{background:#0f2c40;color:#c9d8e2;padding:40px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .mockup-tag{font-size:.8rem;opacity:.75}
+  .back{position:fixed;left:16px;bottom:16px;background:#fff;border:1px solid #d7e3ec;border-radius:999px;
+    padding:8px 14px;font-size:.82rem;text-decoration:none;color:var(--muted);box-shadow:var(--shadow);z-index:50}
+
+  @media(max-width:860px){
+    .about,.split{grid-template-columns:1fr}
+    .cards,.amen-list{grid-template-columns:1fr 1fr}
+    .grid-gallery{grid-template-columns:1fr 1fr}
+    nav.links{display:none}
+  }
+  @media(max-width:520px){
+    .cards,.amen-list,.grid-gallery{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__inner">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M9 9l1.5-3H13"/></svg>
+      Jana Apartman
+    </div>
+    <nav class="links">
+      <a href="#about" data-i18n="nav.about">Bemutatkozás</a>
+      <a href="#features" data-i18n="nav.features">Kerékpáros</a>
+      <a href="#gallery" data-i18n="nav.gallery">Galéria</a>
+      <a href="#booking" data-i18n="nav.booking">Foglalás</a>
+      <a href="#location" data-i18n="nav.location">Elhelyezkedés</a>
+      <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="hu">HU</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="de">DE</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <h1 data-i18n="hero.title">Jana Apartman</h1>
+    <p data-i18n="hero.subtitle">Balatonkeresztúr · Kerékpáros pihenőhely a Balaton déli partján</p>
+    <div class="cta-row">
+      <a class="btn btn--primary" href="#booking" data-i18n="hero.cta_book">Szabad időpontok</a>
+      <a class="btn btn--ghost" href="#about" data-i18n="hero.cta_explore">Fedezd fel</a>
+    </div>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0,40 C300,80 500,0 800,30 C1000,50 1100,25 1200,40 L1200,70 L0,70 Z" fill="#f6fafd"/></svg></div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2 data-i18n="about.title">Üdvözlünk a Jana Apartmanban</h2>
+      <p class="lead" data-i18n="about.body">Kényelmes, világos apartman a Balaton déli partján…</p>
+    </div>
+    <div class="photo"><span>Foto placeholder</span></div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="wrap">
+    <h2 data-i18n="features.title">Kerékpárosoknak kitalálva</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8"/></svg></div>
+        <h3 data-i18n="features.bike_title">Biztonságos tárolás</h3>
+        <p data-i18n="features.bike_desc">Zárható kerékpártároló…</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h3 data-i18n="features.echarge_title">E-bike töltőállomás</h3>
+        <p data-i18n="features.echarge_desc">Töltsd fel elektromos kerékpárod…</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V10l9-7 9 7v11h-6v-6H9v6z"/></svg></div>
+        <h3 data-i18n="features.overnight_title">Egyéjszakás vendégek</h3>
+        <p data-i18n="features.overnight_desc">Csak egy éjszakára térnél be?…</p>
+      </div>
+    </div>
+    <div class="amen-list">
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9c6-5 14-5 20 0M5 12c4-3 10-3 14 0M8 15c2.5-2 5.5-2 8 0M12 18h.01"/></svg><span data-i18n="amenities.wifi">Ingyenes Wi-Fi</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 3v7a3 3 0 006 0V3M7 3v18M17 3c-2 1-3 4-3 7s2 4 3 4 3-1 3-4-1-6-3-7zM17 14v7"/></svg><span data-i18n="amenities.kitchen">Felszerelt konyha</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 20V9a3 3 0 013-3h4a3 3 0 013 3v11M6 13h12"/></svg><span data-i18n="amenities.parking">Ingyenes parkolás</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h18M3 12h18M6 16h6"/></svg><span data-i18n="amenities.ac">Klíma</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V7l9-4 9 4v14M3 12h18"/></svg><span data-i18n="amenities.terrace">Terasz</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="5"/><path d="M8 3h8"/></svg><span data-i18n="amenities.laundry">Mosási lehetőség</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2 data-i18n="gallery.title">Galéria</h2>
+    <div class="grid-gallery">
+      <div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div>
+      <div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div>
+    </div>
+    <p class="note" data-i18n="gallery.note">A képek helyőrzők…</p>
+  </div>
+</section>
+
+<section id="booking" class="booking">
+  <div class="wrap">
+    <h2 data-i18n="booking.title">Szabad időpontok és foglalás</h2>
+    <p class="lead" data-i18n="booking.subtitle">A naptár a Google Naptárból frissül majd…</p>
+    <div class="panel" style="margin-top:22px">
+      <div class="legend">
+        <span><i class="dot dot--free"></i><span data-i18n="booking.legend_free">Szabad</span></span>
+        <span><i class="dot dot--busy"></i><span data-i18n="booking.legend_busy">Foglalt</span></span>
+      </div>
+      <div id="calendar"></div>
+      <div style="margin-top:18px">
+        <a class="btn btn--primary" href="#contact" data-i18n="booking.cta" style="color:#fff;background:var(--primary)">Foglalási kérés küldése</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap split">
+    <div>
+      <h2 data-i18n="location.title">Elhelyezkedés</h2>
+      <p class="lead" data-i18n="location.body">Balatonkeresztúr, közvetlen kapcsolat a Balatoni bringakörúthoz…</p>
+    </div>
+    <div class="map"></div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap split">
+    <div class="map" style="background:linear-gradient(135deg,#dff0d8,#cfe6f4)"></div>
+    <div class="contact-card">
+      <h2 data-i18n="contact.title">Kapcsolat</h2>
+      <p data-i18n="contact.address">8648 Balatonkeresztúr, Magyarország</p>
+      <p><a href="mailto:info@janaapartman.hu" data-i18n="contact.email">info@janaapartman.hu</a></p>
+      <p><a href="tel:+36300000000" data-i18n="contact.phone">+36 30 000 0000</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Jana Apartman</strong> · <span data-i18n="footer.rights">Minden jog fenntartva.</span></div>
+    <div class="mockup-tag" data-i18n="footer.mockup">Ez egy dizájn-mockup…</div>
+  </div>
+</footer>
+
+<a class="back" href="index.html">← Mockups</a>
+
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/availability.js"></script>
+<script>
+  JanaI18n.init("hu");
+  JanaAvailability.renderInto(document.getElementById("calendar"));
+</script>
+</body>
+</html>

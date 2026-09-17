@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jana Apartman — Nordic Minimal (mockup)</title>
+<style>
+  :root{
+    --bg:#ffffff; --ink:#1c1c1e; --muted:#6b6f76; --line:#e7e7ea;
+    --accent:#3a5a40; --accent-2:#2c4531;
+    --radius:8px; --max:1040px;
+    --font:"Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);color:var(--ink);line-height:1.7;background:var(--bg)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  section{padding:104px 0;border-bottom:1px solid var(--line)}
+  h1,h2,h3{margin:0 0 .5em;line-height:1.2;font-weight:600;letter-spacing:-.01em}
+  h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+  .lead{color:var(--muted);font-size:1.08rem;max-width:58ch}
+  .eyebrow{color:var(--accent);font-weight:600;letter-spacing:3px;text-transform:uppercase;font-size:.72rem}
+  a{color:inherit}
+
+  header.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line)}
+  .nav__inner{display:flex;align-items:center;gap:20px;height:72px}
+  .brand{font-weight:600;font-size:1.1rem;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+  .brand svg{width:24px;height:24px;color:var(--accent)}
+  nav.links{margin-left:auto;display:flex;gap:26px;flex-wrap:wrap}
+  nav.links a{text-decoration:none;color:var(--muted);font-size:.92rem}
+  nav.links a:hover{color:var(--ink)}
+  .langs{display:flex;gap:4px;margin-left:6px}
+  .langs button{border:none;background:transparent;color:var(--muted);border-radius:6px;padding:5px 9px;
+    font-size:.78rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent}
+  .langs button[aria-pressed="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+  .hero{border-bottom:1px solid var(--line)}
+  .hero .wrap{min-height:72vh;display:flex;flex-direction:column;justify-content:center}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:600;letter-spacing:-.02em;margin-bottom:.2em}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:6px;padding:12px 24px;font-weight:600;
+    text-decoration:none;cursor:pointer;font-size:.95rem;border:1px solid var(--ink)}
+  .btn--primary{background:var(--ink);color:#fff}
+  .btn--primary:hover{background:#000}
+  .btn--ghost{background:transparent;color:var(--ink)}
+  .btn--ghost:hover{background:#f4f4f5}
+
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .photo{aspect-ratio:4/3;border-radius:var(--radius);background:linear-gradient(135deg,#eef1ee,#dfe6e0);border:1px solid var(--line)}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:40px;background:var(--line);
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .card{background:#fff;padding:34px 28px}
+  .card .ic{width:40px;height:40px;display:grid;place-items:center;color:var(--accent);margin-bottom:16px}
+  .card h3{font-size:1.05rem}
+  .card p{color:var(--muted);margin:0;font-size:.96rem}
+
+  .amen-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
+  .amen{display:flex;align-items:center;gap:12px;padding:18px 4px;border-bottom:1px solid var(--line)}
+  .amen svg{color:var(--accent)}
+
+  .grid-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+  .ph{aspect-ratio:4/3;border-radius:var(--radius);background:#eef1ee;border:1px solid var(--line)}
+  .ph:nth-child(3n){background:#e4ece5}
+  .note{color:var(--muted);font-size:.88rem;margin-top:14px}
+
+  .panel{border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .legend{display:flex;gap:18px;margin:12px 0}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+  .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .dot--free{background:#e3ece4;border:1px solid var(--accent)}
+  .dot--busy{background:#eceded;border:1px solid #b8bcc2}
+
+  .jana-cal__title{font-weight:600;font-size:1.05rem}
+  .jana-cal__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+  .jana-cal__dow{text-align:center;font-size:.7rem;color:var(--muted);font-weight:600;padding:4px 0;letter-spacing:1px}
+  .jana-cal__cell{aspect-ratio:1/1;display:grid;place-items:center;border-radius:6px;font-size:.85rem;font-weight:500}
+  .jana-cal__cell--empty{background:transparent}
+  .jana-cal__cell--free{background:#eef4ef;color:var(--accent-2);border:1px solid #d5e3d8}
+  .jana-cal__cell--busy{background:#f4f5f6;color:#9aa0a8;border:1px solid #e2e4e7;text-decoration:line-through}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .map{aspect-ratio:16/11;border-radius:var(--radius);border:1px solid var(--line);
+    background:
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/44px 44px,
+      linear-gradient(0deg, var(--line) 1px, transparent 1px) 0 0/44px 44px,
+      #fafafa}
+  .contact-card{border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .contact-card a{color:var(--accent-2);font-weight:600;text-decoration:none}
+
+  footer{padding:44px 0;border-top:none}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+  .mockup-tag{font-size:.8rem;opacity:.8}
+  .back{position:fixed;left:16px;bottom:16px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px 14px;
+    font-size:.82rem;text-decoration:none;color:var(--muted);z-index:50}
+
+  @media(max-width:860px){.about,.split{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.amen-list{grid-template-columns:1fr 1fr}.grid-gallery{grid-template-columns:1fr 1fr}nav.links{display:none}}
+  @media(max-width:520px){.amen-list,.grid-gallery{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__inner">
+    <div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M9 9l1.5-3H13"/></svg> Jana Apartman</div>
+    <nav class="links">
+      <a href="#about" data-i18n="nav.about">Bemutatkozás</a>
+      <a href="#features" data-i18n="nav.features">Kerékpáros</a>
+      <a href="#gallery" data-i18n="nav.gallery">Galéria</a>
+      <a href="#booking" data-i18n="nav.booking">Foglalás</a>
+      <a href="#location" data-i18n="nav.location">Elhelyezkedés</a>
+      <a href="#contact" data-i18n="nav.contact">Kapcsolat</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="hu">HU</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Balatonkeresztúr</span>
+    <h1 data-i18n="hero.title">Jana Apartman</h1>
+    <p class="lead" data-i18n="hero.subtitle">Balatonkeresztúr · Kerékpáros pihenőhely…</p>
+    <div class="cta-row">
+      <a class="btn btn--primary" href="#booking" data-i18n="hero.cta_book">Szabad időpontok</a>
+      <a class="btn btn--ghost" href="#about" data-i18n="hero.cta_explore">Fedezd fel</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <span class="eyebrow" data-i18n="nav.about">Bemutatkozás</span>
+      <h2 data-i18n="about.title">Üdvözlünk a Jana Apartmanban</h2>
+      <p class="lead" data-i18n="about.body">Kényelmes, világos apartman…</p>
+    </div>
+    <div class="photo"></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <span class="eyebrow">E-bike ready</span>
+    <h2 data-i18n="features.title">Kerékpárosoknak kitalálva</h2>
+    <div class="cards">
+      <div class="card"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8"/></svg></div><h3 data-i18n="features.bike_title">Biztonságos tárolás</h3><p data-i18n="features.bike_desc">Zárható…</p></div>
+      <div class="card"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><h3 data-i18n="features.echarge_title">E-bike töltőállomás</h3><p data-i18n="features.echarge_desc">Töltsd fel…</p></div>
+      <div class="card"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V10l9-7 9 7v11h-6v-6H9v6z"/></svg></div><h3 data-i18n="features.overnight_title">Egyéjszakás vendégek</h3><p data-i18n="features.overnight_desc">Csak egy éjszakára?…</p></div>
+    </div>
+    <div class="amen-list">
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9c6-5 14-5 20 0M5 12c4-3 10-3 14 0M8 15c2.5-2 5.5-2 8 0M12 18h.01"/></svg><span data-i18n="amenities.wifi">Wi-Fi</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3v7a3 3 0 006 0V3M17 3c-2 1-3 4-3 7s2 4 3 4 3-1 3-4-1-6-3-7z"/></svg><span data-i18n="amenities.kitchen">Konyha</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 20V9a3 3 0 013-3h4a3 3 0 013 3v11M6 13h12"/></svg><span data-i18n="amenities.parking">Parkolás</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M3 12h18M6 16h6"/></svg><span data-i18n="amenities.ac">Klíma</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V7l9-4 9 4v14"/></svg><span data-i18n="amenities.terrace">Terasz</span></div>
+      <div class="amen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="5"/><path d="M8 3h8"/></svg><span data-i18n="amenities.laundry">Mosás</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="nav.gallery">Galéria</span>
+    <h2 data-i18n="gallery.title">Galéria</h2>
+    <div class="grid-gallery"><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div></div>
+    <p class="note" data-i18n="gallery.note">A képek helyőrzők…</p>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="nav.booking">Foglalás</span>
+    <h2 data-i18n="booking.title">Szabad időpontok</h2>
+    <p class="lead" data-i18n="booking.subtitle">A naptár a Google Naptárból frissül majd…</p>
+    <div class="panel" style="margin-top:22px">
+      <div class="legend">
+        <span><i class="dot dot--free"></i><span data-i18n="booking.legend_free">Szabad</span></span>
+        <span><i class="dot dot--busy"></i><span data-i18n="booking.legend_busy">Foglalt</span></span>
+      </div>
+      <div id="calendar"></div>
+      <div style="margin-top:18px"><a class="btn btn--primary" href="#contact" data-i18n="booking.cta">Foglalási kérés</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap split">
+    <div><span class="eyebrow" data-i18n="nav.location">Elhelyezkedés</span><h2 data-i18n="location.title">Elhelyezkedés</h2><p class="lead" data-i18n="location.body">Balatonkeresztúr…</p></div>
+    <div class="map"></div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none">
+  <div class="wrap split">
+    <div class="map"></div>
+    <div class="contact-card">
+      <h2 data-i18n="contact.title">Kapcsolat</h2>
+      <p data-i18n="contact.address">8648 Balatonkeresztúr</p>
+      <p><a href="mailto:info@janaapartman.hu" data-i18n="contact.email">info@janaapartman.hu</a></p>
+      <p><a href="tel:+36300000000" data-i18n="contact.phone">+36 30 000 0000</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Jana Apartman</strong> · <span data-i18n="footer.rights">Minden jog fenntartva.</span></div>
+    <div class="mockup-tag" data-i18n="footer.mockup">Mockup…</div>
+  </div>
+</footer>
+
+<a class="back" href="index.html">← Mockups</a>
+
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/availability.js"></script>
+<script>
+  JanaI18n.init("hu");
+  JanaAvailability.renderInto(document.getElementById("calendar"));
+</script>
+</body>
+</html>

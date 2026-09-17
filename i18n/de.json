@@ -1,0 +1,64 @@
+{
+  "meta": { "lang": "Deutsch" },
+  "nav": {
+    "about": "Über uns",
+    "features": "Für Radfahrer",
+    "gallery": "Galerie",
+    "booking": "Buchung",
+    "location": "Lage",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Jana Apartman",
+    "subtitle": "Balatonkeresztúr · Fahrradfreundliche Unterkunft am Südufer des Balaton",
+    "cta_book": "Verfügbarkeit prüfen",
+    "cta_explore": "Entdecken"
+  },
+  "about": {
+    "title": "Willkommen im Jana Apartman",
+    "body": "Eine komfortable, helle Wohnung am Südufer des Balaton — für Radtouristen und für Gäste, die einfach gut übernachten möchten. Ruhige Umgebung, nah am Wasser und am Radweg."
+  },
+  "features": {
+    "title": "Für Radfahrer gemacht",
+    "bike_title": "Sichere Abstellmöglichkeit",
+    "bike_desc": "Abschließbarer Fahrradraum und Reparaturecke zwischen den Touren.",
+    "echarge_title": "E-Bike-Ladestation",
+    "echarge_desc": "Lade dein E-Bike über Nacht und starte frisch in die nächste Etappe.",
+    "overnight_title": "Übernachtungsgäste",
+    "overnight_desc": "Nur eine Nacht? Auch dann bist du herzlich willkommen."
+  },
+  "amenities": {
+    "title": "Ausstattung",
+    "wifi": "Kostenloses WLAN",
+    "kitchen": "Ausgestattete Küche",
+    "parking": "Kostenlose Parkplätze",
+    "ac": "Klimaanlage",
+    "terrace": "Terrasse / Gartenzugang",
+    "laundry": "Waschmöglichkeit"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "note": "Die Bilder sind Platzhalter — echte Fotos folgen später."
+  },
+  "booking": {
+    "title": "Verfügbarkeit & Buchung",
+    "subtitle": "Der Kalender wird mit Google Kalender synchronisiert. Vorerst eine Platzhalter-Ansicht.",
+    "legend_free": "Frei",
+    "legend_busy": "Belegt",
+    "cta": "Buchungsanfrage senden"
+  },
+  "location": {
+    "title": "Lage",
+    "body": "Balatonkeresztúr, direkt am Balaton-Radrundweg. Strand, Bahnhof und Geschäfte sind wenige Minuten entfernt."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "address": "8648 Balatonkeresztúr, Ungarn",
+    "email": "info@janaapartman.hu",
+    "phone": "+36 30 000 0000"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "mockup": "Dies ist ein Design-Mockup, kein finaler Inhalt."
+  }
+}

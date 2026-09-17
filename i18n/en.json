@@ -1,0 +1,64 @@
+{
+  "meta": { "lang": "English" },
+  "nav": {
+    "about": "About",
+    "features": "Cycling",
+    "gallery": "Gallery",
+    "booking": "Booking",
+    "location": "Location",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Jana Apartman",
+    "subtitle": "Balatonkeresztúr · A cyclist-friendly retreat on Lake Balaton's south shore",
+    "cta_book": "Check availability",
+    "cta_explore": "Explore"
+  },
+  "about": {
+    "title": "Welcome to Jana Apartman",
+    "body": "A comfortable, bright apartment on the southern shore of Lake Balaton — made for cycling tourers and for guests who just want a good night's rest. Calm surroundings, close to the water and the bike path."
+  },
+  "features": {
+    "title": "Built for cyclists",
+    "bike_title": "Secure storage",
+    "bike_desc": "Lockable bike storage and a repair corner between touring days.",
+    "echarge_title": "E-bike charging station",
+    "echarge_desc": "Charge your e-bike overnight and roll out fresh for the next stage.",
+    "overnight_title": "Overnight guests",
+    "overnight_desc": "Just staying one night? You're warmly welcome all the same."
+  },
+  "amenities": {
+    "title": "Amenities",
+    "wifi": "Free Wi-Fi",
+    "kitchen": "Equipped kitchen",
+    "parking": "Free parking",
+    "ac": "Air conditioning",
+    "terrace": "Terrace / garden access",
+    "laundry": "Laundry option"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "note": "Images are placeholders — real photos will be added later."
+  },
+  "booking": {
+    "title": "Availability & booking",
+    "subtitle": "The calendar will sync from Google Calendar. This is a placeholder view for now.",
+    "legend_free": "Free",
+    "legend_busy": "Booked",
+    "cta": "Send a booking request"
+  },
+  "location": {
+    "title": "Location",
+    "body": "Balatonkeresztúr, directly connected to the Lake Balaton bike loop. Beach, train station and shops are minutes away."
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "8648 Balatonkeresztúr, Hungary",
+    "email": "info@janaapartman.hu",
+    "phone": "+36 30 000 0000"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "mockup": "This is a design mockup, not final content."
+  }
+}

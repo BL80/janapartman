@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jana Apartman — Mockup alternatives</title>
+<style>
+  :root{
+    --bg:#0f1419; --card:#161d25; --ink:#eef2f6; --muted:#93a1ad; --accent:#2f8fc7; --line:#26313c;
+    --font:"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  header{padding:64px 0 32px}
+  h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 .3em}
+  .sub{color:var(--muted);max-width:70ch}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding-bottom:70px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    text-decoration:none;color:inherit;transition:.2s;display:flex;flex-direction:column}
+  .tile:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .thumb{height:180px;position:relative;display:flex;align-items:flex-end;padding:16px}
+  .thumb h3{margin:0;font-size:1.2rem;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4);position:relative;z-index:2}
+  .t1{background:linear-gradient(160deg,#2f8fc7,#16506f)}
+  .t2{background:linear-gradient(115deg,#12a35e 55%,#ff6a3d 55%)}
+  .t3{background:linear-gradient(160deg,#2a3444,#3a2f48);border-bottom:2px solid #d9b26a}
+  .t4{background:linear-gradient(160deg,#c8663b,#7d8b53)}
+  .t5{background:linear-gradient(160deg,#eef1ee,#dfe6e0)}
+  .t5 h3{color:#1c1c1e;text-shadow:none}
+  .body{padding:18px}
+  .body p{margin:0;color:var(--muted);font-size:.92rem}
+  .tag{display:inline-block;margin-top:10px;font-size:.74rem;color:var(--accent);border:1px solid var(--line);
+    border-radius:999px;padding:3px 10px}
+  .info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:40px}
+  .info h2{margin-top:0;font-size:1.15rem}
+  .info ul{color:var(--muted);margin:0;padding-left:18px}
+  .info code{background:#0d1116;padding:2px 6px;border-radius:6px;color:#cfe6f4}
+  footer{color:var(--muted);font-size:.85rem;padding:24px 0 60px;border-top:1px solid var(--line)}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Jana Apartman — look &amp; feel</h1>
+    <p class="sub">Five self-contained design mockups for the apartment homepage in Balatonkeresztúr.
+      Each opens as a full static page (no build, works offline), with a HU/EN/DE language switch and a
+      placeholder availability calendar. Pick one to develop into the real site.</p>
+  </header>
+
+  <div class="info">
+    <h2>What's inside each mockup</h2>
+    <ul>
+      <li>Sections: hero · about · cycling &amp; e-bike charging · amenities · gallery · <strong>availability + booking</strong> · location · contact</li>
+      <li>Language switch (HU / EN / DE) powered by <code>assets/js/i18n.js</code></li>
+      <li>Placeholder month calendar from <code>assets/js/availability.js</code> — later swapped for live Google Calendar free/busy</li>
+      <li>Images are gradient placeholders until real photos arrive</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+    <a class="tile" href="lakeside-calm.html">
+      <div class="thumb t1"><h3>Lakeside Calm</h3></div>
+      <div class="body"><p>Airy, light, blue &amp; sand. Big hero, soft waves, minimalist. Reassuring and clean.</p><span class="tag">Calm · trustworthy</span></div>
+    </a>
+    <a class="tile" href="cycling-bold.html">
+      <div class="thumb t2"><h3>Cycling Bold</h3></div>
+      <div class="body"><p>Sporty and energetic. Dark base, green &amp; orange, dynamic diagonals. Speaks to riders.</p><span class="tag">Energetic · sporty</span></div>
+    </a>
+    <a class="tile" href="boutique-glass.html">
+      <div class="thumb t3"><h3>Boutique Glass</h3></div>
+      <div class="body"><p>Dark, elegant, serif headings and glassmorphism cards. Premium, literally transparent.</p><span class="tag">Elegant · glass</span></div>
+    </a>
+    <a class="tile" href="warm-rustic.html">
+      <div class="thumb t4"><h3>Warm Rustic</h3></div>
+      <div class="body"><p>Cozy and earthy. Terracotta &amp; olive, rounded shapes, homely feel. Welcoming.</p><span class="tag">Cozy · homely</span></div>
+    </a>
+    <a class="tile" href="nordic-minimal.html">
+      <div class="thumb t5"><h3>Nordic Minimal</h3></div>
+      <div class="body"><p>Whitespace-heavy, single green accent, crisp lines. Modern and understated.</p><span class="tag">Minimal · modern</span></div>
+    </a>
+  </div>
+
+  <footer>Design mockups only — content is placeholder. Booking stays static via Google Calendar (Phase 3).</footer>
+</div>
+</body>
+</html>
